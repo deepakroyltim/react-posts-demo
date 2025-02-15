@@ -1,0 +1,170 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+  --button-hover: #0056b3;
+  --input-bg: #f0f0f0;
+  --input-border: #ccc;
+  --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --button-bg: #bb86fc;
+  --button-hover: #8146c9;
+  --button-text: #000000;
+  --input-bg: #333333;
+  --input-border: #555555;
+  --box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#posts {
+  width: 980px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post {
+  width: 100%;
+  text-align: left;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.post h1 {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.btn-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.btn,
+.toggle-btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  cursor: pointer;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+/* Hover effects */
+.btn:hover,
+.toggle-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.form {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 10px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover); /* Use the CSS variable here */
+}
+
+.message {
+  width: 95%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.success {
+  background: aquamarine;
+  border: 1px solid #20da9b;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.error {
+  background: #ff7faa;
+  border: 1px solid #da2061;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.loader-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 20px 0;
+  position: relative;
+}
+
+.loader-bar {
+  width: 0%;
+  height: 30px;
+  background-color: var(--button-bg);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 25px;
+  animation: loading 3s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
