@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import { useError } from "../contexts/ErrorContext";
+import { useAppContext } from "../contexts/AppContext";
 
 const NewPost = ({ setLoader, setPosts, setShowForm, setNewPostStatus }) => {
   const titleRef = useRef();
   const bodyRef = useRef();
-  const { showError } = useError();
+  const { showError } = useAppContext();
 
   const formValidation = () => {
     const title = titleRef.current.value;
