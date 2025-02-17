@@ -1,7 +1,7 @@
-import { useError } from "../contexts/ErrorContext";
+import { useAppContext } from "../contexts/AppContext";
 
 const Error = () => {
-  const { error } = useError();
+  const { error } = useAppContext();
   if (!error) {
     return null;
   }

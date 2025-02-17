@@ -5,14 +5,14 @@ import Post from "./components/Post";
 import ThemeToggle from "./components/ThemeToggle";
 import Error from "./components/Error";
 import NewPost from "./components/NewPost";
-import { useError } from "./contexts/ErrorContext";
+import { useAppContext } from "./contexts/AppContext";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [loader, setLoader] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [newPostStatus, setNewPostStatus] = useState(false);
-  const { showError } = useError();
+  const { showError } = useAppContext();
 
   const toggleShowForm = () => {
     setShowForm((prev) => !prev);
