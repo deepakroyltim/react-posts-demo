@@ -2,26 +2,30 @@ import { useRef } from "react";
 import { useAppContext } from "../contexts/AppContext";
 
 const NewPost = ({ setLoader, setPosts, setShowForm, setNewPostStatus }) => {
+  // Refs to store the values of the title and body input fields
   const titleRef = useRef();
   const bodyRef = useRef();
+  // Destructure the showError function from the custom context hook
   const { showError } = useAppContext();
 
+  // Function to validate the form inputs
   const formValidation = () => {
     const title = titleRef.current.value;
     const body = titleRef.current.value;
     if (title === "") {
-      showError("Title can not be black");
+      showError("Title cannot be blank");
       return false;
     }
     if (body === "") {
-      showError("Post Body can not be black");
+      showError("Post Body cannot be blank");
       return false;
     }
-    if (title !== "" && body != "") {
+    if (title !== "" && body !== "") {
       return true;
     }
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const validate = formValidation();
@@ -48,6 +52,7 @@ const NewPost = ({ setLoader, setPosts, setShowForm, setNewPostStatus }) => {
       );
       const newPost = await response.json();
 
+      // Update the posts state with the new post
       setPosts((prevPost) => [newPost, ...prevPost]);
       setNewPostStatus(true);
       setLoader(false);
@@ -56,6 +61,7 @@ const NewPost = ({ setLoader, setPosts, setShowForm, setNewPostStatus }) => {
         setLoader(false);
       }, 5000);
 
+      // Reset the form fields and hide the form
       titleRef.current.value = "";
       bodyRef.current.value = "";
       setShowForm((prevStatus) => !prevStatus);

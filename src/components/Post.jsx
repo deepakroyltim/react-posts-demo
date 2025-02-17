@@ -1,3 +1,4 @@
+// Functional component that represents a single post
 const Post = ({ id, title, body }) => {
   return (
     <div className="post">
